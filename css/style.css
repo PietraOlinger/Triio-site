@@ -105,8 +105,12 @@ p{ margin: 0 0 16px; max-width: 65ch; }
 .cabecalho.rolado{ background: rgba(18,20,24,.94); }
 
 .barra{
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 24px; height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 96px;
+  min-width: 0;
 }
 
 /* --- logo --- */
@@ -124,16 +128,26 @@ p{ margin: 0 0 16px; max-width: 65ch; }
 }
 
 /* --- navegação --- */
-.nav{ display: flex; align-items: center; gap: 4px; }
-.nav-item{ position: relative; }
-/* área de hover estendida: o painel abre já no primeiro contato do cursor
-   e não fecha enquanto o mouse desce do link até o balão */
+.nav{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-item{
+  position: relative;
+  flex-shrink: 1;
+}
 .nav-item::after{ content:''; position:absolute; left:0; right:0; top:100%; height:30px; }
 
 .nav-link{
   display: flex; align-items: center; gap: 8px;
   padding: 12px 14px; border-radius: 10px;
   font-size: .92rem; font-weight: 500; color: var(--cinza-claro);
+  white-space: nowrap;
   transition: color .2s ease, background .2s ease;
 }
 .nav-link svg{ width: 18px; height: 18px; transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
@@ -175,7 +189,12 @@ p{ margin: 0 0 16px; max-width: 65ch; }
 .pop ul a::before{ content:''; width:5px; height:5px; border-radius:50%; background: var(--laranja); flex-shrink:0; }
 .pop ul a:hover{ color: var(--laranja); }
 
-.acoes-cabecalho{ display:flex; align-items:center; gap:10px; }
+.acoes-cabecalho{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
 
 /* botão hambúrguer (mobile) */
 .hamburguer{
